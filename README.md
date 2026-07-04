@@ -153,4 +153,4 @@ AI:   Louvain detected 3 circuits:
 
 ---
 
-*Built with devotion for India's 12 million pilgrims 🙏*
+*Built for devotees who just want to know — "what is the best route to my next temple?" 🙏*
