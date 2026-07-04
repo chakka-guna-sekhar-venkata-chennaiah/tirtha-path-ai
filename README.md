@@ -76,13 +76,40 @@ gds_path  gds_analysis    gds_community
 
 ## Setup
 
-### 1. Install Neo4j Desktop + GDS Plugin
+### 1. Start Neo4j with GDS Plugin
+
+**Option A — Docker (recommended, GDS included automatically)**
+
+Make sure [Docker Desktop](https://www.docker.com/products/docker-desktop/) is running, then:
+
+```bash
+docker run --name neo4j-tirtha \
+  -p 7474:7474 -p 7687:7687 \
+  -e NEO4J_AUTH=neo4j/password \
+  -e NEO4J_PLUGINS='["graph-data-science"]' \
+  -d neo4j:5
+```
+
+That's it — Neo4j 5 + GDS plugin starts automatically. Default credentials: `neo4j` / `password`.  
+Open [http://localhost:7474](http://localhost:7474) to verify it's running.
+
+To stop/start later:
+```bash
+docker stop neo4j-tirtha
+docker start neo4j-tirtha
+```
+
+---
+
+**Option B — Neo4j Desktop**
 
 1. Download **Neo4j Desktop** from [neo4j.com/download](https://neo4j.com/download/)
 2. Create a new **Local DBMS** (Neo4j 5.x)
 3. In the database panel → **Plugins** tab → **Graph Data Science** → Install
 4. Start the database
 5. Note your password (set when creating)
+
+---
 
 ### 2. Install Python dependencies
 
@@ -194,7 +221,7 @@ The architecture of combining a LangChain ReAct agent with Neo4j GDS shows how A
 |---|---|
 | LLM | DeepSeek Chat API |
 | Agent | LangGraph `create_react_agent` |
-| Graph DB | Neo4j 5.x (local Desktop) |
+| Graph DB | Neo4j 5.x (Docker or Desktop) |
 | GDS | Neo4j Graph Data Science plugin |
 | UI | Streamlit |
 | Visualisation | pyvis (vis.js — same engine as Neo4j Browser) |
