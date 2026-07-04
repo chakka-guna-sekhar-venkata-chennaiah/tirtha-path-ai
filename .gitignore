@@ -1,0 +1,24 @@
+# Secrets & environment
+.env
+
+# Local competition assets & screenshots
+for_posting/
+
+# Local library installs
+lib/
+
+# Claude Code workspace
+.claude/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# macOS
+.DS_Store
+
+# Pipenv (auto-generated)
+Pipfile
+Pipfile.lock
